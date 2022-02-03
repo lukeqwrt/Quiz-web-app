@@ -41,6 +41,7 @@ const result_box = document.querySelector(".result_box");
 const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
 
+
 restart_quiz.onclick = () => {
     result_box.classList.remove("activeResult")
     quiz_box.classList.add("activeQuiz")
@@ -52,7 +53,7 @@ restart_quiz.onclick = () => {
     let counterLine;
     let timeValue = 15;
     let widthValue = 0;
-    let userScore = 0;
+     userScore = 0;
     showQuestions(que_count)
     queCounter(que_numb)
     clearInterval(counter)
@@ -61,12 +62,18 @@ restart_quiz.onclick = () => {
     startTimerLine(widthValue)
     next_btn.style.display = "none"
     timeOff.textContent = "Time Left"
+
+    form.classList.add('form_active')
+    buttons_r.classList.remove('button_act')
 }
 
 quit_quiz.onclick = () => {
     window.location.reload();
 }
 
+
+const form = document.querySelector('.form')
+const buttons_r = document.querySelector('.buttons_restart')
 //if next button clicked
 next_btn.onclick = () => {
     if(que_count < questions.length - 1){
@@ -88,10 +95,24 @@ next_btn.onclick = () => {
         clearInterval(counterLine)
         console.log('questions.completed')
         showResultBox();
+      
+       
     }
 }
 
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('namescore').add({
+    name: form.name.value,
+    score: userScore
 
+});
+form.name.value = "";
+console.log('finish')
+form.classList.remove('form_active')
+buttons_r.classList.add('button_act')
+// console.log(buttons)
+})
 
 // getting Questions and options from array
 
@@ -151,23 +172,27 @@ function optionSelected(answer){
     next_btn.style.display = "block"
 }
 
+
+
 function showResultBox(){
     info_box.classList.remove("activeinfo") //hide the info box
     quiz_box.classList.remove("activeQuiz") //show the quiz
     result_box.classList.add("activeResult") //show the result
     const scoreText = result_box.querySelector(".score_text");
     if(userScore > 3 ){
-        let scoreTag = ' <span>and congrats, you got <p>'+userScore +'</p> out of <p>'+questions.length+'</p></span> '
+        let scoreTag = `<span>and congrats, you got <p class='myscore'>${userScore}</p> out of <p>${questions.length}</p></span>`
         scoreText.innerHTML = scoreTag;
     }
     else if(userScore > 1 ){
-        let scoreTag = ' <span>and nice, You got <p>'+userScore +'</p> out of <p>'+questions.length+'</p></span> '
+        let scoreTag = `<span>and nice, You got <p class='myscore'>${userScore}</p> out of <p>${questions.length}</p></span>`
         scoreText.innerHTML = scoreTag;
     }
     else{
-        let scoreTag = ' <span>and sorry you only got <p>'+userScore +'</p> out of <p>'+questions.length+'</p></span> '
+        let scoreTag = `<span>and sorry you only got <p class='myscore'>${userScore}</p> out of <p>${questions.length}</p></span>`
         scoreText.innerHTML = scoreTag;
     }
+
+    
 }
 
 
@@ -216,12 +241,27 @@ function startTimerLine(time){
     }
 }
 
-
-
-
-
 function queCounter(index){
     const  bottom_ques_counter = quiz_box.querySelector(".total_que");
     let totalQuesCountTag = '<span><p>'+ index +'</p>of<p>'+ questions.length +'</p>Questions</span>';
     bottom_ques_counter.innerHTML =  totalQuesCountTag
 }
+
+const score_btn = document.querySelector('.score_btn')
+const close_btn = document.querySelector('.close_btn')
+
+const modal_score_container = document.querySelector('.modal_score_container')
+
+modal_score_container.addEventListener('click', (e) => {
+    if(e.target.classList.contains('modal_score_container')){
+        modal_score_container.classList.remove('modal_active')
+    }
+})
+score_btn.addEventListener('click', () => {
+    modal_score_container.classList.add('modal_active')
+})
+close_btn.addEventListener('click', () => {
+    modal_score_container.classList.remove('modal_active')
+})
+
+
