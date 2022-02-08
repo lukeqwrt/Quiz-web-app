@@ -19,91 +19,98 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
-<body>
-    <div class="main">
-        <nav>
-            <div class="nav-center">
-                <div class="logo">
-                    <p>Quiz Time</p>
+    <body id="bg" class="lightMode">
+            <div class="main">
+                <nav  class="nav_container">
+                    <div class="nav-center">
+                        <div class="logo">
+                            <p fontColor>Quiz Time</p>
+                        </div>
+            
+                        <ul class="list">
+                            <li><a fontColor href="">Login</a></li>
+                            <li><a fontColor href="">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="quiz_wrapper" >
+                    <div id="trivia_quiz" class="quiz_box">
+                        <header>
+                            <p>Trivia Question</p>
+                            <div class="des_list">
+                                <div class="des">
+                                    <i class="fas fa-list-ul"></i>
+                                    <p>5 Question</p>
+                                </div>
+                                <div class="des">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <p>Level: Easy</p>
+                                </div>
+                            </div>
+                        </header>
+                    <img src="./img/pexels-olia-danilevich-5088021.jpg" alt="">
+                    </div>
+
+                    <div class="quiz_box">
+                        <header>
+                            <p>Science</p>
+                            <div class="des_list">
+                                <div class="des">
+                                    <i class="fas fa-list-ul"></i>
+                                    <p>5 Question</p>
+                                </div>
+                                <div class="des">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <p>Level: Average</p>
+                                </div>
+                            </div>
+                        </header>
+                        <img src="./img/pexels-olia-danilevich-5088021.jpg" alt="">
+                    </div>
+                    <div class="quiz_box">
+                        <header>
+                            <p>Math</p>
+                            <div class="des_list">
+                                <div class="des">
+                                    <i class="fas fa-list-ul"></i>
+                                    <p>5 Question</p>
+                                </div>
+                                <div class="des">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <p>Level: Difficult</p>
+                                </div>
+                            </div>
+                        </header>
+                        <img src="./img/pexels-jess-bailey-designs-743986.jpg" alt="">
+                    </div>
+                    <div class="quiz_box">
+                        <header>
+                            <p>English</p>
+                            <div class="des_list">
+                                <div class="des">
+                                    <i class="fas fa-list-ul"></i>
+                                    <p>5 Question</p>
+                                </div>
+                                <div class="des">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <p>Level: Easy</p>
+                                </div>
+                            </div>
+                        </header>
+                        <img src="./img/pexels-jess-bailey-designs-743986.jpg" alt="">
+                    </div>
                 </div>
-    
-                <ul class="list">
-                    <li><a href="">Login</a></li>
-                    <li><a href="">Sign Up</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div class="quiz_wrapper" >
-            <a class="quiz_box" href="./quiz-pages/jsquiz/index.html">
-                <header>
-                    <p>Trivia Question</p>
-                    <div class="des_list">
-                        <div class="des">
-                            <i class="fas fa-list-ul"></i>
-                            <p>5 Question</p>
-                        </div>
-                        <div class="des">
-                            <i class="fas fa-project-diagram"></i>
-                            <p>Level: Easy</p>
-                        </div>
-                    </div>
-                </header>
-            <img src="./img/pexels-olia-danilevich-5088021.jpg" alt="">
-            </a>
 
-            <div class="quiz_box">
-                <header>
-                    <p>Science</p>
-                    <div class="des_list">
-                        <div class="des">
-                            <i class="fas fa-list-ul"></i>
-                            <p>5 Question</p>
-                        </div>
-                        <div class="des">
-                            <i class="fas fa-project-diagram"></i>
-                            <p>Level: Average</p>
-                        </div>
-                    </div>
-                </header>
-                <img src="./img/pexels-olia-danilevich-5088021.jpg" alt="">
-            </div>
-            <div class="quiz_box">
-                <header>
-                    <p>Math</p>
-                    <div class="des_list">
-                        <div class="des">
-                            <i class="fas fa-list-ul"></i>
-                            <p>5 Question</p>
-                        </div>
-                        <div class="des">
-                            <i class="fas fa-project-diagram"></i>
-                            <p>Level: Difficult</p>
-                        </div>
-                    </div>
-                </header>
-                <img src="./img/pexels-jess-bailey-designs-743986.jpg" alt="">
-            </div>
-            <div class="quiz_box">
-                <header>
-                    <p>English</p>
-                    <div class="des_list">
-                        <div class="des">
-                            <i class="fas fa-list-ul"></i>
-                            <p>5 Question</p>
-                        </div>
-                        <div class="des">
-                            <i class="fas fa-project-diagram"></i>
-                            <p>Level: Easy</p>
-                        </div>
-                    </div>
-                </header>
-                <img src="./img/pexels-jess-bailey-designs-743986.jpg" alt="">
-            </div>
-        </div>
-    </div>
+                <div class="lights_btn">
+                    <div class="toggle_wrapper">
+                        
+                        <input class="toggle" type="checkbox" checked>
 
-    
+                    </div>
+                </div>
+            </div>
 
-    <script src="./script.js"></script>
-</body>
+        <script src="./script.js"></script>
+    </body>
 </html>
+

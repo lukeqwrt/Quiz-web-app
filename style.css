@@ -3,17 +3,29 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+:root{
+    /* --fontcolor: #D6D6D6; */
+    --fontColorLight: #fff;
+    --fontColorDark: #fff;
+}
 body{
     background:#F7F8FA;
+    transition: background 500ms ease;
 }
-
+body.darkMode{
+    background: #121212;
+}
 nav{
+    color: var(--fontColor);
     background: #fff;
     width: 100%;
     height: 50px;
     box-shadow: rgb(0 0 0 / 10%) 0px 1px 5px, rgb(0 0 0 / 10%) 0px 1px 5px;
     
+}
+nav.nav_active{
+    transition: background 500ms ease;
+    background: #1F1F1F;
 }
 nav .nav-center{
     height: 100%;
@@ -49,6 +61,28 @@ nav .nav-center .list li a{
 }
 
 /* main */
+
+.main {
+    position: relative;
+    height: 100vh;
+}
+
+/* brightness */
+.lights_btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+.lights_btn .toggle_wrapper{
+    max-width: 1300px;    
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90%;
+}
 .quiz_wrapper{
     max-width: 1200px;
     width: 93%;
@@ -71,6 +105,8 @@ nav .nav-center .list li a{
     /* display: grid; */
     /* grid-template-rows: auto 1fr; */
 }
+.quiz_wrapper a.quiz_box{}
+
 .quiz_wrapper .quiz_box header{
     border-radius: 10px;
     background: rgba(0, 0,0,0.5);
@@ -175,4 +211,57 @@ nav .nav-center .list li a{
         display: grid;
         grid-template-columns: repeat(4, auto);
     }
+}
+
+
+
+.lights_btn .toggle {
+    --size: 1.8rem;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    width: var(--size);
+    height: var(--size);
+    box-shadow: inset calc(var(--size) * 0.33) calc(var(--size) * -0.25) 0;
+    border-radius: 999px;
+    color: #fff;
+    transition: all 500ms;
+}
+.lights_btn .toggle:checked {
+    --ray-size: calc(var(--size) * -0.4);
+    --offset-orthogonal: calc(var(--size) * 0.65);
+    --offset-diagonal: calc(var(--size) * 0.45);
+    transform: scale(0.75);
+    color: #fa0;
+    box-shadow: inset 0 0 0 var(--size),
+              calc(var(--offset-orthogonal) * -1) 0 0 var(--ray-size),
+              var(--offset-orthogonal) 0 0 var(--ray-size),
+              0 calc(var(--offset-orthogonal) * -1) 0 var(--ray-size),
+              0 var(--offset-orthogonal) 0 var(--ray-size),
+              calc(var(--offset-diagonal) * -1) calc(var(--offset-diagonal) * -1) 0 var(--ray-size),
+              var(--offset-diagonal) var(--offset-diagonal) 0 var(--ray-size),
+              calc(var(--offset-diagonal) * -1) var(--offset-diagonal) 0 var(--ray-size),
+              var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0 var(--ray-size);
+}
+
+/* as {
+    --bg: #003;
+    background: var(--bg);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    transition: background 500ms;
+} */
+.lights_btn .toggle {
+    z-index: 1;
+}
+.lights_btn .toggle:hover{
+   
+
+}
+
+
+.lights_btn .toggle:checked > body {
+    --bg: white;
+    transition: background 500ms ease;
 }
